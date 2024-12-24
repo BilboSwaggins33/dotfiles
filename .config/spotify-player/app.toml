@@ -1,4 +1,4 @@
-theme = "dracula"
+theme = "tokyonight"
 client_id = "8606a79108d0452b95e6d6dd11a83de2"
 client_port = 8080
 login_redirect_uri = "http://127.0.0.1:8989/login"

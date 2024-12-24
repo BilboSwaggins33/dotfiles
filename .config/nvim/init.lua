@@ -175,7 +175,6 @@ vim.opt.inccommand = 'split'
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
-
 -- Keep cursor a block in all modes
 vim.opt.guicursor = 'n-v-i-c:block-Cursor'
 

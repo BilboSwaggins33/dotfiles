@@ -10,11 +10,11 @@ PATHS_ONE_DEPTH=(
     "$HOME/projects"
     "$HOME/personal"
     "$HOME/.config"
-    "$HOME/.dotfiles"
 )
 
 PATHS_TWO_DEPTH=(
     "$HOME/school"
+    "$HOME/.dotfiles"
 )
 
 
