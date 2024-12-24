@@ -1,0 +1,16 @@
+[window]
+opacity = 0.7
+padding = {x = 5, y = 5}
+
+[env]
+term = "xterm-256color"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style="Regular"}
+size = 24.0
+
+[mouse]
+hide_when_typing = true
+
+[colors]
+transparent_background_colors=true

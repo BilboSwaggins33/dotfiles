@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+PATHS_ZERO_DEPTH=(
+    "$HOME"
+    "$HOME/.local/bin"
+)
+
+PATHS_ONE_DEPTH=(
+    "$HOME/work"
+    "$HOME/projects"
+    "$HOME/personal"
+    "$HOME/.config"
+    "$HOME/.dotfiles"
+)
+
+PATHS_TWO_DEPTH=(
+    "$HOME/school"
+)
+
+
+if [[ $# -eq 1 ]]; then
+    selected=$1
+else
+    find_commands=()
+    for path in "${PATHS_ZERO_DEPTH[@]}"; do
+        find_commands+=("find $path -mindepth 0 -maxdepth 0 -type d")
+    done
+
+    for path in "${PATHS_ONE_DEPTH[@]}"; do
+        find_commands+=("find $path -mindepth 0 -maxdepth 1 -type d")
+    done
+
+    for path in "${PATHS_TWO_DEPTH[@]}"; do
+        find_commands+=("find $path -mindepth 0 -maxdepth 2 -type d")
+    done
+
+    combined_find_command=$(IFS=";"; echo "${find_commands[*]}")
+
+    selected=$(eval "$combined_find_command" | fzf --prompt="search directory: ")
+fi
+
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
+echo $selected;
+

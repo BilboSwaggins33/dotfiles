@@ -1,0 +1,9 @@
+[17:47:16 2024-12-09] FETCHING Version 2.38.5
+[17:47:16 2024-12-09] CREATING /home/aaron/.spicetify
+[17:47:16 2024-12-09] DOWNLOADING https://github.com/spicetify/cli/releases/download/v2.38.5/spicetify-2.38.5-linux-amd64.tar.gz
+[17:47:19 2024-12-09] EXTRACTING /home/aaron/.spicetify/spicetify.tar.gz
+[17:47:19 2024-12-09] SETTING EXECUTABLE PERMISSIONS TO /home/aaron/.spicetify/spicetify
+[17:47:19 2024-12-09] REMOVING /home/aaron/.spicetify/spicetify.tar.gz
+[17:47:19 2024-12-09] APPENDING /home/aaron/.spicetify to PATH in /home/aaron/.bashrc
+[17:47:19 2024-12-09] spicetify v2.38.5 was installed successfully to /home/aaron/.spicetify
+[17:47:19 2024-12-09] Run 'spicetify --help' to get started
