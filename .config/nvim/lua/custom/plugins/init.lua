@@ -4,6 +4,12 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'nvimdev/indentmini.nvim',
+    config = function()
+      require('indentmini').setup()
+    end,
+  },
+  {
     'petertriho/nvim-scrollbar',
     dependencies = { 'lewis6991/gitsigns.nvim' },
     config = function()
@@ -11,22 +17,19 @@ return {
     end,
   },
   {
-    'letieu/harpoon-lualine',
-    dependencies = {
-      {
-        'ThePrimeagen/harpoon',
-        branch = 'harpoon2',
-      },
-    },
-  },
-  {
     'rachartier/tiny-inline-diagnostic.nvim',
     event = 'VeryLazy', -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     config = function()
       require('tiny-inline-diagnostic').setup {
-        blend = {
-          factor = 0.27,
+        signs = {
+          left = '',
+          right = '',
+          diag = '●',
+          arrow = '    ',
+          up_arrow = '    ',
+          vertical = ' │',
+          vertical_end = ' └',
         },
         options = {
           show_source = true,
@@ -139,12 +142,6 @@ return {
           },
           lualine_x = {
             get_timerly_status,
-            {
-              'harpoon2',
-              indicators = { 'h', 'j', 'k', 'l' },
-              active_indicators = { 'h', 'j', 'k', 'l' },
-              color_active = { fg = '#a9b665' },
-            },
             'encoding',
             'fileformat',
             'filetype',
@@ -187,8 +184,14 @@ return {
 
     config = function()
       local harpoon = require 'harpoon'
+      local toggle_opts = {
+        border = 'rounded',
+        title_pos = 'center',
+        ui_width_ratio = 0.4,
+        title = '',
+      }
       vim.keymap.set('n', '<C-e>', function()
-        harpoon.ui:toggle_quick_menu(harpoon:list())
+        harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
       end)
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
@@ -204,17 +207,26 @@ return {
       vim.keymap.set('n', '<leader>a', function()
         harpoon:list():add()
       end)
-      vim.keymap.set('n', '<C-h>', function()
+      vim.keymap.set('n', '<leader>1', function()
         harpoon:list():select(1)
       end)
-      vim.keymap.set('n', '<C-j>', function()
+      vim.keymap.set('n', '<leader>2', function()
         harpoon:list():select(2)
       end)
-      vim.keymap.set('n', '<C-k>', function()
+      vim.keymap.set('n', '<leader>3', function()
         harpoon:list():select(3)
       end)
-      vim.keymap.set('n', '<C-l>', function()
+      vim.keymap.set('n', '<leader>4', function()
         harpoon:list():select(4)
+      end)
+      vim.keymap.set('n', '<leader>5', function()
+        harpoon:list():select(5)
+      end)
+      vim.keymap.set('n', '<leader>6', function()
+        harpoon:list():select(6)
+      end)
+      vim.keymap.set('n', '<leader>7', function()
+        harpoon:list():select(7)
       end)
     end,
   },

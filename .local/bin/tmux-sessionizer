@@ -3,6 +3,10 @@
 SCRIPT_PATH="$HOME/.local/bin/tmux-fzf"
 selected=$("$SCRIPT_PATH")
 
+if [[ -z $selected ]]; then
+    exit 0
+fi
+
 selected_name=$(basename "$selected" | tr . _)
 tmux_running=$(pgrep tmux)
 

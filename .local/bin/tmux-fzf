@@ -39,9 +39,6 @@ else
     selected=$(eval "$combined_find_command" | fzf --prompt="search directory: ")
 fi
 
-if [[ -z $selected ]]; then
-    exit 0
-fi
 
 echo $selected;
 

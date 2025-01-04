@@ -101,17 +101,19 @@ vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
 vim.keymap.set('n', '<leader>fmfl', '<cmd>CellularAutomaton game_of_life<CR>')
 vim.g.loaded_netrwPlugin = 1
 
-vim.cmd [[  let g:startify_lists = [  { 'type': 'bookmarks', 'header': ['   Bookmarks']},{'type': 'files', 'header': ['   MRU']}] ]]
+vim.cmd [[  let g:startify_lists = [  { 'type': 'bookmarks', 'header': ['   Bookmarks']},] ]]
 
 vim.cmd [[ let g:startify_bookmarks = ['~/.config/nvim/init.lua',  '~/.config/nvim/lua/custom/plugins/init.lua', '~/.config/nvim/lua/custom/colors/init.lua' ] ]]
 
 vim.api.nvim_create_autocmd({ 'FileType' }, {
   pattern = 'harpoon',
   callback = function()
-    vim.opt.winblend = 5 -- 0 ~ 100
-    vim.opt.cursorline = true
+    vim.opt.winblend = 0 -- 0 ~ 100
+    vim.opt.cursorline = false
   end,
 })
+
+vim.cmd [[ set colorcolumn=120 ]]
 
 vim.lsp.inlay_hint.enable(true)
 
@@ -240,9 +242,9 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
 -- [[ Configure and install plugins ]]
 --
@@ -1051,6 +1053,8 @@ require('lazy').setup({
       -- - sd'   - [S]urround [D]elete [']quotes
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
+
+      require('mini.comment').setup()
 
       -- Simple and easy statusline.
       --  You could remove this setup call if you don't like it,
