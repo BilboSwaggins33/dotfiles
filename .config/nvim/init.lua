@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   end,
 })
 
-vim.cmd [[ set colorcolumn=120 ]]
+vim.cmd [[ set colorcolumn=80 ]]
 
 vim.lsp.inlay_hint.enable(true)
 
@@ -435,6 +435,7 @@ require('lazy').setup({
               prompt_position = 'top',
             },
           },
+          borderchars = { ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ' },
         },
         pickers = { find_files = { hidden = true } },
         -- extensions = {

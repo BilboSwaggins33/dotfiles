@@ -46,9 +46,9 @@ i3lock \
   --pass-media-keys \
   --pass-screen-keys \
   --pass-volume-keys \
-  --time-font="JetBrainsMono Nerd Font" \
-  --date-font="JetBrainsMono Nerd Font" \
-  --layout-font="JetBrainsMono Nerd Font" \
-  --verif-font="JetBrainsMono Nerd Font" \
-  --wrong-font="JetBrainsMono Nerd Font" \
-  -i ~/.config/i3/japan.png \
+  --time-font="FiraCode Nerd Font" \
+  --date-font="FiraCode Nerd Font" \
+  --layout-font="FiraCode Nerd Font" \
+  --verif-font="FiraCode Nerd Font" \
+  --wrong-font="FiraCode Nerd Font" \
+  -i ~/.config/i3/lockscreen.png \

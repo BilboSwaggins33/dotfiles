@@ -40,18 +40,21 @@ return {
       }
       local groups = {
         all = {
-          TelescopeBorder = { fg = 'palette.bg0', bg = 'palette.bg0' },
+          TelescopeBorder = { fg = '', bg = 'palette.bg0' },
           TelescopeNormal = { fg = 'palette.fg0', bg = 'palette.bg0' },
           TelescopeSelection = { fg = 'palette.orange', bg = 'palette.bg1' },
           TelescopeSelectionCaret = { fg = 'palette.green', bg = 'palette.bg1' },
-          TelescopeMultiSelection = { fg = 'palette.fg1', bg = 'palette.bg1' },
+          TelescopeMultiSelection = { fg = 'palette.fg0', bg = 'palette.bg1' },
           TelsescopeTitle = { fg = 'palette.bg0', bg = 'palette.red' },
-          TelescopePromptTitle = { fg = 'palette.bg0', bg = 'palette.magenta' },
-          TelescopePreviewTitle = { fg = 'palette.bg0', bg = 'palette.yellow' },
-          TelescopePromptNormal = { fg = 'palette.fg1', bg = 'palette.bg0' },
+          TelescopePromptTitle = { fg = 'palette.fg0', bg = 'palette.magenta' },
+          TelescopePreviewTitle = { fg = 'palette.fg0', bg = 'palette.green' },
+          TelescopePromptNormal = { fg = 'palette.fg0', bg = 'palette.bg0' },
           TelescopePromptBorder = { fg = 'palette.bg0', bg = 'palette.bg0' },
+
           FloatBorder = { fg = 'palette.bg0', bg = 'palette.bg0' },
-          NormalFloat = { fg = 'palette.fg1', bg = 'palette.bg0' },
+          NormalFloat = { fg = 'palette.fg0', bg = 'palette.bg0' },
+
+          MsgArea = { fg = 'palette.fg2', bg = 'palette.bg0' },
         },
       }
       require('nightfox').setup {
@@ -59,8 +62,8 @@ return {
         groups = groups,
       }
 
-      vim.cmd.highlight 'IndentLine guifg=#29394f'
-      vim.cmd.highlight 'IndentLineCurrent guifg=#71839b'
+      -- vim.cmd.highlight 'IndentLine guifg=#29394f'
+      -- vim.cmd.highlight 'IndentLineCurrent guifg=#71839b'
     end,
   },
   {
@@ -70,8 +73,8 @@ return {
     config = function()
       -- Optionally configure and load the colorscheme
       -- directly inside the plugin declaration.
-      vim.g.gruvbox_material_background = 'hard'
-      vim.g.gruvbox_material_foreground = 'material'
+      vim.g.gruvbox_material_background = 'medium'
+      vim.g.gruvbox_material_foreground = 'original'
       vim.g.gruvbox_material_transparent_background = 1
       vim.g.gruvbox_material_enable_italic = true
       vim.g.gruvbox_material_enable_bold = 1
@@ -84,24 +87,22 @@ return {
           local palette = vim.fn['gruvbox_material#get_palette'](config.background, config.foreground, config.colors_override)
           local set_hl = vim.fn['gruvbox_material#highlight']
 
-          set_hl('TelescopeBorder', palette.bg_dim, palette.bg_dim)
+          set_hl('TelescopeBorder', palette.fg0, palette.bg_dim)
           set_hl('TelescopeNormal', palette.fg0, palette.bg_dim)
-          set_hl('TelescopeSelection', palette.blue, palette.bg1)
-          set_hl('TelescopeSelectionCaret', palette.green, palette.bg_dim)
-          set_hl('TelescopeMultiSelection', palette.fg1, palette.bg1)
+          set_hl('TelescopeSelection', palette.orange, palette.bg1)
+          set_hl('TelescopeSelectionCaret', palette.green, palette.bg1)
+          set_hl('TelescopeMultiSelection', palette.fg0, palette.bg1)
+          set_hl('TelescopeTitle', palette.bg0, palette.red)
+          set_hl('TelescopePromptTitle', palette.bg0, palette.purple)
+          set_hl('TelescopePreviewTitle', palette.bg0, palette.aqua)
+          set_hl('TelescopePromptNormal', palette.fg0, palette.bg_dim)
+          set_hl('TelescopePromptBorder', palette.fg0, palette.bg_dim)
 
-          set_hl('TelescopeTitle', palette.bg_dim, palette.red)
-          set_hl('TelescopePromptTitle', palette.bg_dim, palette.purple)
-          set_hl('TelescopePreviewTitle', palette.bg_dim, palette.yellow)
-          local promptBg = palette.bg1
-          set_hl('TelescopePromptNormal', palette.fg1, promptBg)
-          set_hl('TelescopePromptBorder', promptBg, promptBg)
-
-          set_hl('FloatBorder', palette.bg_dim, palette.bg_dim)
+          set_hl('FloatBorder', palette.bg0, palette.bg_dim)
           set_hl('NormalFloat', palette.fg0, palette.bg_dim)
 
           vim.cmd.highlight 'IndentLine guifg=#3c3836'
-          vim.cmd.highlight 'IndentLineCurrent guifg=#89b482'
+          vim.cmd.highlight 'IndentLineCurrent guifg=#665c54'
         end,
       })
     end,
@@ -111,8 +112,8 @@ return {
       -- 'catppuccin-mocha', 'catppuccin-macchiato', 'catppuccin-frappe'.
       -- 'nightfox', 'duskfox', 'nordfox'.
       -- 'rose-pine', variant = 'moon, main' - setup'.
-      -- 'gruvbox-material'
-      vim.cmd.colorscheme 'nightfox'
+      -- vim.cmd.colorscheme 'nightfox'
+      vim.cmd.colorscheme 'gruvbox-material'
       vim.cmd.hi 'Comment gui=none'
     end,
   },

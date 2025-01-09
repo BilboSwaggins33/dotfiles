@@ -37,13 +37,14 @@ bindsym $mod+t exec --no-startup-id lock-blur
 exec --no-startup-id nm-applet
 
 # set display to 1920x1080
-exec_always xrandr --output DP-1 --mode 2560x1440
+exec_always xrandr --output DP-1 --mode 1920x1080
 
 # remap Caps Lock with Escape
 exec_always "sleep 1 && setxkbmap -option caps:swapescape"
 
 # set background image
 bindsym $mod+b exec --no-startup-id feh --bg-scale $(wallpaper-randomizer)
+bindsym $mod+Shift+b exec feh --bg-scale ~/Pictures/Wallpapers/road.png
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -159,7 +160,7 @@ bindsym $mod+9 workspace number $ws9
 bindsym $mod+0 workspace number $ws10
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
+client.focused          #F0D684 #F0C674 #ffffff #F0D674   #FABD2F
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
