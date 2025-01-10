@@ -98,4 +98,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # custom tmux scripts
 export PATH="$HOME/.local/bin:$PATH"
-bindkey '^f' tmux-sessionizer
+bindkey -s '^f' 'tmux-sessionizer\n'
