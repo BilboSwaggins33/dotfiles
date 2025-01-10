@@ -14,7 +14,7 @@ PATHS_ONE_DEPTH=(
 
 PATHS_TWO_DEPTH=(
     "$HOME/school"
-    "$HOME/.dotfiles"
+    "$HOME/dotfiles"
 )
 
 
