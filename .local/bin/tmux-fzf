@@ -6,15 +6,14 @@ PATHS_ZERO_DEPTH=(
 )
 
 PATHS_ONE_DEPTH=(
-    "$HOME/work"
-    "$HOME/projects"
-    "$HOME/personal"
+    "$HOME/Code"
+    "$HOME/dotfiles"
     "$HOME/.config"
+    "$HOME/eclipse-workspace"
 )
 
 PATHS_TWO_DEPTH=(
-    "$HOME/school"
-    "$HOME/.dotfiles"
+    "$HOME/dotfiles"
 )
 
 
@@ -41,4 +40,3 @@ fi
 
 
 echo $selected;
-
