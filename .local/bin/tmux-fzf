@@ -3,6 +3,7 @@
 PATHS_ZERO_DEPTH=(
     "$HOME"
     "$HOME/.local/bin"
+    "$HOME/Downloads"
 )
 
 PATHS_ONE_DEPTH=(
