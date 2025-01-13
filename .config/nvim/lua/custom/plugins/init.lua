@@ -175,8 +175,8 @@ return {
     config = function()
       -- Setup orgmode
       require('orgmode').setup {
-        org_agenda_files = '~/personal/az.org',
-        org_default_notes_file = '~/personal/az.org',
+        org_agenda_files = '~/az.org',
+        org_default_notes_file = '~/az.org',
         org_agenda_skip_deadline_if_done = true,
         org_agenda_skip_scheduled_if_done = true,
       }
