@@ -37,13 +37,12 @@ bindsym $mod+t exec --no-startup-id lock-blur
 exec --no-startup-id nm-applet
 
 # set display to 1920x1080
-# exec_always --no-startup-id xrandr --output DP-1 --mode 1920x1080
-exec_always --no-startup-id xrandr --output HDMI-2 --mode 1920x1080
+exec_always --no-startup-id xrandr --output DP-1 --mode 2560x1440
+exec_always --no-startup-id xrandr --output HDMI-2 --mode 2560x1440
+exec_always --no-startup-id xrandr --output HDMI-1 --mode 2560x1440
 
 # set key repeat
-exec_always xset r rate 195 35 
-
-
+exec_always xset r rate 300 32
 
 # remap Caps Lock with Escape
 exec_always "sleep 1 && setxkbmap -option caps:swapescape"
@@ -130,13 +129,16 @@ bindsym $mod+a focus parent
 
 
 # Increase volume by 5%
-bindsym $mod+Shift+plus exec --no-startup-id amixer -q sset Master 5%+
+# bindsym $mod+Shift+plus exec --no-startup-id amixer -q sset Master 5%+
+bindsym $mod+Shift+plus exec pactl set-sink-volume 95 +5%
 
 # Decrease volume by 5%
-bindsym $mod+Shift+minus exec --no-startup-id amixer -q sset Master 5%-
+# bindsym $mod+Shift+minus exec --no-startup-id amixer -q sset Master 5%-
+bindsym $mod+Shift+minus exec pactl set-sink-volume 95 -5%
 
 # Mute/Unmute volume
-bindsym $mod+Shift+m exec --no-startup-id amixer -q sset Master toggle
+# bindsym $mod+Shift+m exec --no-startup-id amixer -q sset Master toggle
+bindsym $mod+Shift+m exec pactl set-sink-mute 95 toggle
 
 # focus the child container
 #bindsym $mod+d focus child

@@ -14,7 +14,7 @@ return {
       -- refer to the configuration section below
       indent = { enabled = true, animate = { duration = { step = 10 } } },
       scroll = {
-        enabled = true,
+        enabled = false,
         animate = {
           duration = { step = 15, total = 100 },
           easing = 'linear',
