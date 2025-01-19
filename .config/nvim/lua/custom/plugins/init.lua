@@ -4,47 +4,79 @@
 -- See the kickstart.nvim README for more information
 return {
   {
-    'catgoose/nvim-colorizer.lua',
+    'folke/snacks.nvim',
+    priority = 1000,
+    lazy = false,
+    ---@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      indent = { enabled = true, animate = { duration = { step = 10 } } },
+      scroll = {
+        enabled = true,
+        animate = {
+          duration = { step = 15, total = 100 },
+          easing = 'linear',
+        },
+      },
+      bigfile = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+      zen = { enabled = true },
+      dim = { enabled = true },
+      animate = { enabled = true },
+    },
+    keys = {
+      {
+        '<leader>z',
+        function()
+          Snacks.zen()
+        end,
+        desc = 'Toggle Zen Mode',
+      },
+      {
+        '<leader>Z',
+        function()
+          Snacks.zen.zoom()
+        end,
+        desc = 'Toggle Zoom',
+      },
+    },
+    init = function()
+      vim.api.nvim_create_autocmd('User', {
+        pattern = 'VeryLazy',
+        callback = function()
+          -- Setup some globals for debugging (lazy-loaded)
+          _G.dd = function(...)
+            Snacks.debug.inspect(...)
+          end
+          _G.bt = function()
+            Snacks.debug.backtrace()
+          end
+          vim.print = _G.dd -- Override print to use snacks for `:=` command
+
+          Snacks.toggle.diagnostics():map '<leader>ud'
+          Snacks.toggle.inlay_hints():map '<leader>uh'
+          Snacks.toggle.dim():map '<leader>uD'
+        end,
+      })
+    end,
+  },
+  {
+    'iamcco/markdown-preview.nvim',
+    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
+    build = 'cd app && npm install',
+    init = function()
+      vim.g.mkdp_filetypes = { 'markdown' }
+    end,
+    ft = { 'markdown' },
+  },
+  {
+    'catgoose/nvim-colorizer.lua', -- highlights colors
     event = 'BufReadPre',
     opts = { -- set to setup table
     },
-  },
-  {
-    'nvimdev/indentmini.nvim',
-    config = function()
-      require('indentmini').setup()
-    end,
-  },
-  {
-    'petertriho/nvim-scrollbar',
-    dependencies = { 'lewis6991/gitsigns.nvim' },
-    config = function()
-      require('scrollbar').setup {}
-    end,
-  },
-  {
-    'rachartier/tiny-inline-diagnostic.nvim',
-    event = 'VeryLazy', -- Or `LspAttach`
-    priority = 1000, -- needs to be loaded in first
-    config = function()
-      require('tiny-inline-diagnostic').setup {
-        signs = {
-          left = '',
-          right = '',
-          diag = '●',
-          arrow = '    ',
-          up_arrow = '    ',
-          vertical = ' │',
-          vertical_end = ' └',
-        },
-        options = {
-          show_source = true,
-          multilines = true,
-          show_all_diags_on_cursorline = false,
-        },
-      }
-      vim.diagnostic.config { virtual_text = false }
-    end,
   },
   {
     'nvzone/timerly',

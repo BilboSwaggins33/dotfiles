@@ -99,6 +99,10 @@ vim.b.org_indent_mode = true
 vim.b.org_hide_leading_stars = true
 vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
 vim.keymap.set('n', '<leader>fmfl', '<cmd>CellularAutomaton game_of_life<CR>')
+
+-- Themery
+vim.keymap.set('n', '<leader>st', '<cmd>Themery<CR>', { desc = '[S]earch [T]hemes' })
+
 vim.g.loaded_netrwPlugin = 1
 
 vim.cmd [[  let g:startify_lists = [  { 'type': 'bookmarks', 'header': ['   Bookmarks']},] ]]

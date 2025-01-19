@@ -16,15 +16,15 @@ hide_when_typing = true
 transparent_background_colors=true
  
 [colors.primary]
-background = '#192330'
-foreground = '#cdcecf'
+background = '{{base00}}'
+foreground = '{{base05}}'
 
 [colors.normal]
-black   = '#212e3f'
-red     = '#c94f6d'
-green   = '#81b29a'
-yellow  = '#dbc074'
-blue    = '#719cd6'
-magenta = '#9d79d6'
-cyan    = '#63cdcf'
-white   = '#e4e4e5'
+black   = '{{base01}}'
+red     = '{{base08}}'
+green   = '{{base0B}}'
+yellow  = '{{base0A}}'
+blue    = '{{base0D}}'
+magenta = '{{base0E}}'
+cyan    = '{{base0C}}'
+white   = '{{base07}}'

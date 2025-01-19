@@ -1,9 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 PATHS_ZERO_DEPTH=(
     "$HOME"
     "$HOME/.local/bin"
     "$HOME/Downloads"
+    "$HOME/.ssh"
 )
 
 PATHS_ONE_DEPTH=(

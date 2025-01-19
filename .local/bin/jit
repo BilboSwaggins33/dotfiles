@@ -1,0 +1,48 @@
+#!/bin/bash
+
+declare -rA CONFIG_FILES=(
+    ["$HOME/dotfiles/.config/alacritty/alacritty.toml"]="$HOME/dotfiles/.templates/alacritty.toml"
+    ["$HOME/dotfiles/.config/ncspot/config.toml"]="$HOME/dotfiles/.templates/ncspot.toml"
+    ["$HOME/dotfiles/.config/polybar/config.ini"]="$HOME/dotfiles/.templates/polybar.ini"
+    ["$HOME/dotfiles/.config/i3/config"]="$HOME/dotfiles/.templates/i3.conf"
+    ["$HOME/dotfiles/.config/tmux/tmux.conf"]="$HOME/dotfiles/.templates/tmux.conf"
+    ["$HOME/dotfiles/.local/bin/lock-blur"]="$HOME/dotfiles/.templates/lock-blur"
+)
+
+TEMPLATE_DIR=($HOME/dotfiles/.templates)
+THEME_DIR="$HOME/dotfiles/.themes"
+
+export THEME="$1"
+# Check if theme file exists
+if [[ -f "$THEME_DIR/$THEME.theme" ]]; then
+    echo "Theme set to $THEME"
+    # assign each base to its bash var
+    eval $(awk '/^base[0-9A-F]+:/ { gsub(":", "", $1); print $1 "=" $2 }' $THEME_DIR/$THEME.theme)
+    # grab theme_name
+    eval $(awk '/theme/ { gsub(":", "", $1); print $1 "=" $2}' $THEME_DIR/$THEME.theme)
+
+    # construct sed script for base16 colorscheme
+    sed_script=""
+    for i in $(seq 0 15); do
+	hex=$(printf "%02X" $i)
+	sed_script+=" -e \"s/{{base$hex}}/\$base$hex/g\""
+    done
+
+    sed_script+=" -e \"s/{{theme_name}}/\$theme_name/g\""
+
+    for key in ${!CONFIG_FILES[@]}
+    do
+	eval "sed$sed_script ${CONFIG_FILES[${key}]} > ${key}"
+    done
+
+    # apply changes
+    i3-msg restart
+    tmux source-file ~/dotfiles/.config/tmux/tmux.conf
+
+else
+    echo "Theme '$THEME' not found in $THEME_DIR."
+    exit 1
+fi
+
+
+

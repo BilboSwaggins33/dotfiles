@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 SCRIPT_PATH="$HOME/.local/bin/tmux-fzf"
 selected=$("$SCRIPT_PATH")
