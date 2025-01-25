@@ -128,17 +128,19 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 
 
+# pactl list sinks
+
 # Increase volume by 5%
 # bindsym $mod+Shift+plus exec --no-startup-id amixer -q sset Master 5%+
-bindsym $mod+Shift+plus exec pactl set-sink-volume 95 +5%
+bindsym $mod+Shift+plus exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 # Decrease volume by 5%
 # bindsym $mod+Shift+minus exec --no-startup-id amixer -q sset Master 5%-
-bindsym $mod+Shift+minus exec pactl set-sink-volume 95 -5%
+bindsym $mod+Shift+minus exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 
 # Mute/Unmute volume
 # bindsym $mod+Shift+m exec --no-startup-id amixer -q sset Master toggle
-bindsym $mod+Shift+m exec pactl set-sink-mute 95 toggle
+bindsym $mod+Shift+m exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 # focus the child container
 #bindsym $mod+d focus child

@@ -10,8 +10,8 @@ cursor-invert-fg-bg=true
 
 background-opacity=1
 window-decoration=false
-window-padding-x=7
-window-padding-y=7
+window-padding-x=4
+window-padding-y=4
 
 font-size=18
 
