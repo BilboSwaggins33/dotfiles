@@ -27,28 +27,31 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+_gen_fzf_default_opts() {
 
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --info=inline-right \
-  --ansi \
-  --layout=reverse \
-  --border=none
-  --color=bg+:#2e3c64 \
-  --color=bg:#1f2335 \
-  --color=border:#29a4bd \
-  --color=fg:#c0caf5 \
-  --color=gutter:#1f2335 \
-  --color=header:#ff9e64 \
-  --color=hl+:#2ac3de \
-  --color=hl:#2ac3de \
-  --color=info:#545c7e \
-  --color=marker:#ff007c \
-  --color=pointer:#ff007c \
-  --color=prompt:#2ac3de \
-  --color=query:#c0caf5:regular \
-  --color=scrollbar:#29a4bd \
-  --color=separator:#ff9e64 \
-  --color=spinner:#ff007c \
-"
+local color00='#32302f'
+local color01='#3c3836'
+local color02='#504945'
+local color03='#665c54'
+local color04='#bdae93'
+local color05='#d5c4a1'
+local color06='#ebdbb2'
+local color07='#fbf1c7'
+local color08='#fb4934'
+local color09='#fe8019'
+local color0A='#fabd2f'
+local color0B='#b8bb26'
+local color0C='#8ec07c'
+local color0D='#83a598'
+local color0E='#d3869b'
+local color0F='#d65d0e'
+
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
+" --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D"\
+" --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C"\
+" --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
+}
+
+_gen_fzf_default_opts
 
 eval "$(starship init bash)"

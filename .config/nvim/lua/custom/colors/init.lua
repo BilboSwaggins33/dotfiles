@@ -42,6 +42,52 @@ return {
     end,
   },
   {
+    'ellisonleao/gruvbox.nvim',
+    priority = 1000,
+    config = function()
+      local c = require('gruvbox').palette
+      require('gruvbox').setup {
+        contrast = '',
+        transparent_mode = true,
+        overrides = {
+          TelescopeNormal = {
+            bg = c.dark0_soft,
+            fg = c.light4,
+          },
+          TelescopeBorder = {
+            bg = c.dark0_soft,
+            fg = c.dark0_soft,
+          },
+          TelescopePromptNormal = {
+            bg = c.dark1,
+          },
+          TelescopePromptBorder = {
+            bg = c.dark1,
+            fg = c.dark1,
+          },
+          TelescopePromptTitle = {
+            bg = c.dark1,
+            fg = c.dark1,
+          },
+          TelescopePreviewTitle = {
+            bg = c.dark0_soft,
+            fg = c.dark0_soft,
+          },
+          TelescopeResultsTitle = {
+            bg = c.dark0_soft,
+            fg = c.dark0_soft,
+          },
+          SnacksIndentScope = {
+            fg = c.light4,
+          },
+        },
+      }
+    end,
+    init = function()
+      vim.cmd.colorscheme 'gruvbox'
+    end,
+  },
+  {
     'catppuccin/nvim',
     name = 'catppuccin',
     priority = 1000,
@@ -96,48 +142,6 @@ return {
         options = options,
         groups = groups,
       }
-    end,
-  },
-  {
-    'sainnhe/gruvbox-material',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      -- Optionally configure and load the colorscheme
-      -- directly inside the plugin declaration.
-      vim.g.gruvbox_material_background = 'medium'
-      vim.g.gruvbox_material_foreground = 'original'
-      vim.g.gruvbox_material_transparent_background = 2
-      vim.g.gruvbox_material_enable_italic = true
-      vim.g.gruvbox_material_enable_bold = 1
-
-      vim.api.nvim_create_autocmd('ColorScheme', {
-        group = vim.api.nvim_create_augroup('custom_highlights_gruvboxmaterial', {}),
-        pattern = 'gruvbox-material',
-        callback = function()
-          local config = vim.fn['gruvbox_material#get_configuration']()
-          local palette = vim.fn['gruvbox_material#get_palette'](config.background, config.foreground, config.colors_override)
-          local set_hl = vim.fn['gruvbox_material#highlight']
-
-          set_hl('TelescopeBorder', palette.fg0, palette.bg_dim)
-          set_hl('TelescopeNormal', palette.fg0, palette.bg_dim)
-          set_hl('TelescopeSelection', palette.orange, palette.bg1)
-          set_hl('TelescopeSelectionCaret', palette.green, palette.bg1)
-          set_hl('TelescopeMultiSelection', palette.fg0, palette.bg1)
-          set_hl('TelescopeTitle', palette.bg0, palette.red)
-          set_hl('TelescopePromptTitle', palette.bg0, palette.purple)
-          set_hl('TelescopePreviewTitle', palette.bg0, palette.aqua)
-          set_hl('TelescopePromptNormal', palette.fg0, palette.bg_dim)
-          set_hl('TelescopePromptBorder', palette.fg0, palette.bg_dim)
-
-          set_hl('FloatBorder', palette.bg0, palette.bg_dim)
-          set_hl('NormalFloat', palette.fg0, palette.bg_dim)
-        end,
-      })
-    end,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight'
-      vim.cmd.hi 'Comment gui=none'
     end,
   },
 }

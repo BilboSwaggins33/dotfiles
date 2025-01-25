@@ -107,15 +107,6 @@ return {
     end,
   },
   {
-    'iamcco/markdown-preview.nvim',
-    cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    build = 'cd app && npm install',
-    init = function()
-      vim.g.mkdp_filetypes = { 'markdown' }
-    end,
-    ft = { 'markdown' },
-  },
-  {
     'catgoose/nvim-colorizer.lua', -- highlights colors
     event = 'BufReadPre',
     opts = { -- set to setup table

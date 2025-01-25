@@ -6,13 +6,13 @@ selection='#44475a'
 comment='#6272a4'
 
 # gruvbox
-yellow='#dbc074'
-orange='#f4a261'
-red='#c94f6d'
-magenta='#9d79d6'
-blue='#719cd6'
-cyan='#63cdcf'
-green='#81b29a'
+yellow='#d79921'
+orange='#d65d0e'
+red='#cc241d'
+magenta='#b16286'
+blue='#458588'
+cyan='#689d6a'
+green='#98971a'
 
 
 i3lock \
@@ -53,4 +53,4 @@ i3lock \
   --layout-font="FiraCode Nerd Font" \
   --verif-font="FiraCode Nerd Font" \
   --wrong-font="FiraCode Nerd Font" \
-  -i ~/.config/i3/nightfox.png \
+  -i ~/.config/i3/gruvbox.png \

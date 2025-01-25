@@ -1,4 +1,4 @@
-theme = "Tokyo Night Storm"
+theme = "Gruvbox"
 client_id = "8606a79108d0452b95e6d6dd11a83de2"
 login_redirect_uri = "http://127.0.0.1:8989/login"
 client_port = 8080

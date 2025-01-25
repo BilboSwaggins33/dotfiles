@@ -250,6 +250,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 
+
 -- [[ Configure and install plugins ]]
 --
 --  To check the current status of your plugins, run
