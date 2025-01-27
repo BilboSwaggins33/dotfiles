@@ -1,5 +1,5 @@
 theme=GruvboxDark
-font-family=FiraCode Nerd Font Mono
+font-family=JetBrainsMono Nerd Font
 font-style=Medium
 
 term=xterm-256color
@@ -8,7 +8,7 @@ cursor-style=block
 cursor-style-blink=false
 cursor-invert-fg-bg=true
 
-background-opacity=0.96
+background-opacity=0.92
 window-decoration=false
 window-padding-x=4
 window-padding-y=4

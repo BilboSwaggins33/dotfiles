@@ -19,21 +19,19 @@ i3lock \
   --insidever-color=$selection$alpha \
   --insidewrong-color=$selection$alpha \
   --inside-color=$selection$alpha \
-  --ringver-color=$green$alpha \
+  --ringver-color=$magenta$alpha \
   --ringwrong-color=$orange$alpha \
-  --ringver-color=$green$alpha \
-  --ringwrong-color=$orange$alpha \
-  --ring-color=$green $alpha \
+  --ring-color=$magenta $alpha \
   --line-uses-ring \
-  --keyhl-color=$yellow$alpha \
-  --bshl-color=$orange$alpha \
+  --keyhl-color=$blue$alpha \
+  --bshl-color=$blue$alpha \
   --separator-color=$selection$alpha \
   --verif-color=$cyan \
   --wrong-color=$orange\
   --modif-color=$orange\
-  --layout-color=$green \
-  --date-color=$green \
-  --time-color=$green \
+  --layout-color=$magenta\
+  --date-color=$magenta\
+  --time-color=$magenta\
   --clock \
   --indicator \
   --time-str="%H:%M:%S" \

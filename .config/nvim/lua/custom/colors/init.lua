@@ -49,6 +49,13 @@ return {
       require('gruvbox').setup {
         contrast = '',
         transparent_mode = true,
+        italic = {
+          strings = true,
+          emphasis = true,
+          comments = true,
+          operators = false,
+          folds = true,
+        },
         overrides = {
           TelescopeNormal = {
             bg = c.dark0_soft,
@@ -85,6 +92,7 @@ return {
     end,
     init = function()
       vim.cmd.colorscheme 'gruvbox'
+      vim.api.nvim_set_hl(0, 'Folded', { italic = true, bg = '#282828' })
     end,
   },
   {

@@ -72,7 +72,7 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -nb '#222222' -sf '#202020' -sb '#d79921' -nf '#bbbbbb' -fn 'FiraCode Nerd Font:size=8:weight=semibold'
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#222222' -sf '#202020' -sb '#d79921' -nf '#bbbbbb' -fn 'JetBrainsMono Nerd Font:size=8:weight=semibold'
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
