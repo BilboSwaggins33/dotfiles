@@ -101,7 +101,7 @@ vim.keymap.set('n', '<leader>fml', '<cmd>CellularAutomaton make_it_rain<CR>')
 vim.keymap.set('n', '<leader>fmfl', '<cmd>CellularAutomaton game_of_life<CR>')
 
 -- Themery
-vim.keymap.set('n', '<leader>st', '<cmd>Themery<CR>', { desc = '[S]earch [T]hemes' })
+vim.keymap.set('n', '<leader>mt', '<cmd>Markview toggle<CR>', { desc = '[M]arkview [T]oggle' })
 
 vim.g.loaded_netrwPlugin = 1
 
@@ -249,7 +249,6 @@ vim.opt.rtp:prepend(lazypath)
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
-
 
 -- [[ Configure and install plugins ]]
 --

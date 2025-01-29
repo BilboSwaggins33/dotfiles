@@ -4,6 +4,10 @@
 -- See the kickstart.nvim README for more information
 return {
   {
+    'OXY2DEV/markview.nvim',
+    lazy = false,
+  },
+  {
     'folke/trouble.nvim',
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = 'Trouble',
